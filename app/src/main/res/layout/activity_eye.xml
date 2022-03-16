@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="7">
+
+    <com.example.hovi_android.ui.CameraSourcePreview
+        android:id="@+id/preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.example.hovi_android.ui.GraphicOverlay
+            android:id="@+id/faceOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.example.hovi_android.ui.CameraSourcePreview>
+
+<!--    <TextView-->
+<!--        android:id="@+id/instruction_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginRight="20dp"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_weight="2"-->
+<!--        android:text="Calibration"-->
+<!--        android:textColor="#000000"-->
+<!--        android:textSize="35sp" />-->
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:orientation="vertical"-->
+<!--        android:layout_weight="5">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/camera_view"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="320dp" />-->
+
+<!--    </LinearLayout>-->
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:text="안녕"
+        android:id="@+id/text"
+        android:textColor="@color/black"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:text="TTS"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="get"
+        android:id="@+id/get_msg"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="post"
+        android:id="@+id/post_msg"/>
+
+</LinearLayout>
+
+
+</FrameLayout>

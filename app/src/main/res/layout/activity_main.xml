@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:background="@drawable/border"
+        android:layout_marginBottom="60dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/rectangle">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="ACTION 1 : Smiling" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Water Please" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:background="@drawable/border"
+        android:layout_marginBottom="60dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@drawable/rectangle"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="ACTION 2 : Open mouth"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Hungry"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_rectangle"
+        android:textStyle="bold"
+        android:id="@+id/check_btn"
+        android:text="Check"/>
+
+
+</LinearLayout>

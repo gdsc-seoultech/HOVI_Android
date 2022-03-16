@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/0903A/AndroidStudioProjects/hovi_android/app/src/main/res/drawable/border.xml" value="0.2585" />
+        <entry key="..\:/Users/0903A/AndroidStudioProjects/hovi_android/app/src/main/res/drawable/btn_rectangle.xml" value="0.18" />
+        <entry key="..\:/Users/0903A/AndroidStudioProjects/hovi_android/app/src/main/res/drawable/rectangle.xml" value="0.2585" />
+        <entry key="..\:/Users/0903A/AndroidStudioProjects/hovi_android/app/src/main/res/layout-land/activity_eye.xml" value="0.2328125" />
+        <entry key="..\:/Users/0903A/AndroidStudioProjects/hovi_android/app/src/main/res/layout/activity_eye.xml" value="0.25" />
+        <entry key="..\:/Users/0903A/AndroidStudioProjects/hovi_android/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/0903A/AndroidStudioProjects/hovi_android/app/src/main/res/xml/network_security_config.xml" value="0.18489583333333334" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
