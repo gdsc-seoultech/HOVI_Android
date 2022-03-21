@@ -4,11 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/0903A/AndroidStudioProjects/hovi_android/app/src/main/res/drawable/border.xml" value="0.2585" />
+        <entry key="..\:/Users/0903A/AndroidStudioProjects/hovi_android/app/src/main/res/drawable/btn_rectan.xml" value="0.176" />
         <entry key="..\:/Users/0903A/AndroidStudioProjects/hovi_android/app/src/main/res/drawable/btn_rectangle.xml" value="0.18" />
         <entry key="..\:/Users/0903A/AndroidStudioProjects/hovi_android/app/src/main/res/drawable/rectangle.xml" value="0.2585" />
         <entry key="..\:/Users/0903A/AndroidStudioProjects/hovi_android/app/src/main/res/layout-land/activity_eye.xml" value="0.2328125" />
-        <entry key="..\:/Users/0903A/AndroidStudioProjects/hovi_android/app/src/main/res/layout/activity_eye.xml" value="0.25" />
+        <entry key="..\:/Users/0903A/AndroidStudioProjects/hovi_android/app/src/main/res/layout/activity_eye.xml" value="0.2" />
         <entry key="..\:/Users/0903A/AndroidStudioProjects/hovi_android/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/0903A/AndroidStudioProjects/hovi_android/app/src/main/res/layout/activity_revise.xml" value="0.18489583333333334" />
         <entry key="..\:/Users/0903A/AndroidStudioProjects/hovi_android/app/src/main/res/xml/network_security_config.xml" value="0.18489583333333334" />
       </map>
     </option>
