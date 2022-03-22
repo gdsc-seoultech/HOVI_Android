@@ -16,15 +16,20 @@ package com.example.hovi_android.ui;
  * limitations under the License.
  */
 
+import android.app.ProgressDialog;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PointF;
+import android.widget.Toast;
 
 /**
  * Graphics class for rendering Googly Eyes on a graphic overlay given the current eye positions.
  */
 class EyesGraphics extends GraphicOverlay.Graphic {
+
+    private Paint paint; //추가
+
     private static final float EYE_RADIUS_PROPORTION = 0.45f;
     private static final float IRIS_RADIUS_PROPORTION = EYE_RADIUS_PROPORTION / 2.0f;
 
@@ -50,6 +55,10 @@ class EyesGraphics extends GraphicOverlay.Graphic {
     public EyesGraphics(GraphicOverlay overlay) {
         super(overlay);
 
+        paint = new Paint(); //추가
+        paint.setColor(Color.TRANSPARENT); //원래 GREEN
+        paint.setStyle(Paint.Style.FILL);
+
         //
         mEyeWhitesPaint = new Paint();
         mEyeWhitesPaint.setColor(Color.TRANSPARENT);
@@ -57,7 +66,7 @@ class EyesGraphics extends GraphicOverlay.Graphic {
 
         //눈꺼풀
         mEyeLidPaint = new Paint();
-        mEyeLidPaint.setColor(Color.YELLOW);
+        mEyeLidPaint.setColor(Color.TRANSPARENT);//원래 YELLOW
         mEyeLidPaint.setStyle(Paint.Style.FILL);
 
         //홍채
@@ -132,13 +141,18 @@ class EyesGraphics extends GraphicOverlay.Graphic {
         if (isOpen) {
             canvas.drawCircle(eyePosition.x, eyePosition.y, eyeRadius, mEyeWhitesPaint);
             canvas.drawCircle(irisPosition.x, irisPosition.y, irisRadius, mEyeIrisPaint);
+            //타이머리셋시키기
         } else {
+            //감은 눈
             canvas.drawCircle(eyePosition.x, eyePosition.y, eyeRadius, mEyeLidPaint);
             float y = eyePosition.y;
             float start = eyePosition.x - eyeRadius;
             float end = eyePosition.x + eyeRadius;
             canvas.drawLine(start, y, end, y, mEyeOutlinePaint);
+            //타이머쭉증가
+            canvas.drawCircle(eyePosition.x+13, eyePosition.y+12, eyeRadius, paint); //추가
         }
+
         canvas.drawCircle(eyePosition.x, eyePosition.y, eyeRadius, mEyeOutlinePaint);
     }
 }

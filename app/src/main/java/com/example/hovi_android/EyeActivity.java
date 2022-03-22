@@ -4,17 +4,22 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +50,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -57,8 +64,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class EyeActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
 
     private TextToSpeech tts;
-    private Button speak_out;
-    private TextView input_text;
+//    private TextView input_text;
 
     //비전
     private static final String TAG = "GooglyEyes";
@@ -74,97 +80,69 @@ public class EyeActivity extends AppCompatActivity implements TextToSpeech.OnIni
 
     private boolean mIsFrontFacing = true;
 
+//    private ProgressBar progressBar;
+//    private Timer timeCall;
+//    private int nCnt;
+
+    RetrofitAPI retrofitAPI;
+    String action1, action2;
+    TextView txt_action1, txt_action2;
+
+    public static Context mContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eye);
+        mContext = this;
 
-        Button get_btn = (Button) findViewById(R.id.get_msg);
-        Button post_btn = (Button) findViewById(R.id.post_msg);
+        //todo 눈 감기 시 타이머 작동
+//        progressBar = findViewById(R.id.progressBar);
+//        progressBar.setIndeterminate(false);
+//
+//        nCnt = 0;
+//
+//        TimerTask timerTask = new TimerTask() {
+//            @Override
+//            public void run() {
+//                work();
+//                progressBar.setProgress(nCnt);
+//            }
+//        };
+//
+//        timeCall = new Timer();
+//        timeCall.schedule(timerTask,0,1000);
+
 
         tts = new TextToSpeech(this, this);
-        speak_out = findViewById(R.id.button);
-        input_text = findViewById(R.id.text);
 
-        speak_out.setOnClickListener(new View.OnClickListener(){
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP) // LOLLIPOP이상 버전에서만 실행 가능
-            @Override
-            public void onClick(View v){
-                Log.e("tts","안녕하세요");
-                speakOut();
-            }
-        });
-
-        //타임아웃오류처리
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .connectTimeout(10, TimeUnit.MINUTES)
-                .readTimeout(30, TimeUnit.SECONDS)
-                .writeTimeout(15, TimeUnit.SECONDS)
-                .build();
+        txt_action1 = findViewById(R.id.action1);
+        txt_action2 = findViewById(R.id.action2);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://15.164.218.200:8080/")
-                .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+        retrofitAPI = retrofit.create(RetrofitAPI.class);
 
-        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
+        Intent intent = getIntent();
+//        action1 = intent.getStringExtra("action1");
+//        action2 = intent.getStringExtra("action2");
+        SharedPreferences actionSP = getSharedPreferences("action", MODE_PRIVATE);
+        txt_action1.setText(actionSP.getString("action1",""));
+        txt_action2.setText(actionSP.getString("action2",""));
 
-//        get_btn.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view) {
-//                //이벤트
-//                retrofitAPI.getData("test").enqueue(new Callback<List<Post>>() {
-//                    @Override
-//                    public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
-//                        Log.e("리스폰스", String.valueOf(response));
-//                        if(response.isSuccessful()){
-//                            List<Post> data = response.body();
-//                            Log.d("test","입력" );
-//                            Log.d("test","성공" + String.valueOf(data));
-//                        }
-//                        Log.d("test","실패" );
-//
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<List<Post>> call, Throwable t) {
-//                        t.printStackTrace();
-//                    }
-//                });
-//            }
-//        });
+        if(action1 != null && action2 != null && action1 != "" && action2 != "") {
+            txt_action1.setText(action1);
+            txt_action2.setText(action2);
+            Log.d("인덴트업데이드", action1 + "&" + action2);
+        }else{
+            SharedPreferences sharedPreferences= getSharedPreferences("user", MODE_PRIVATE);
+            String user_id = sharedPreferences.getString("userId","");
+            getAction(user_id);
+            Log.d("..업데이드", action1 + "&" + action2);
+        }
 
-        post_btn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                //이벤트
-                Post post = new Post();
-                post.setId("test");
-                post.setAction1("안녕");
-                post.setAction2("안녕하세요");
-
-                retrofitAPI.postData(post).enqueue(new Callback<Post>(){
-
-                    @Override
-                    public void onResponse(Call<Post> call, Response<Post> response) {
-                        Log.e("post", String.valueOf(response));
-                        if(response.isSuccessful()){
-                            Post data = response.body();
-                            Log.d("TEST", "post"+data.getAction2());
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<Post> call, Throwable t) {
-                        t.printStackTrace();
-                        Log.d("h", String.valueOf(t));
-                        Log.d("TEST", "실패");
-                    }
-                });
-
-            }
-        });
 
         //비전
         mPreview = findViewById(R.id.preview);
@@ -179,6 +157,52 @@ public class EyeActivity extends AppCompatActivity implements TextToSpeech.OnIni
             requestCameraPermission();
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent intent = new Intent(this, MainActivity.class); //지금 액티비티에서 다른 액티비티로 이동하는 인텐트 설정
+//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //인텐트 플래그 설정 -> 더 알아보기
+        startActivity(intent);  //인텐트 이동
+        finish();   //현재 액티비티 종료
+    }
+
+//    private void work(){
+//        Log.d("타이머", nCnt+"work");
+//        if(nCnt >= 5){
+//            timeCall.cancel();
+//        }
+//        nCnt++;
+//    }
+
+    Handler handler = new Handler(Looper.getMainLooper());
+
+    public void dorightAction(){
+        Log.e("오른쪽눈","액션");
+        rspeakOut();
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run()
+            {
+                Toast.makeText(EyeActivity.this, txt_action1.getText(), Toast.LENGTH_SHORT).show();
+            }
+        }, 0);
+    }
+
+    public void doleftAction(){
+        Log.e("왼른쪽눈","액션");
+        lspeakOut();
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run()
+            {
+                Toast.makeText(EyeActivity.this, txt_action2.getText(), Toast.LENGTH_SHORT).show();
+            }
+        }, 0);
     }
 
 
@@ -202,8 +226,20 @@ public class EyeActivity extends AppCompatActivity implements TextToSpeech.OnIni
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    private void speakOut(){
-        CharSequence text = input_text.getText();
+    private void rspeakOut(){
+        CharSequence text = txt_action1.getText();
+        tts.setPitch((float)0.6); // 음성 톤 높이 지정
+        tts.setSpeechRate((float)0.8); // 음성 속도 지정
+
+        // 첫 번째 매개변수: 음성 출력을 할 텍스트
+        // 두 번째 매개변수: 1. TextToSpeech.QUEUE_FLUSH - 진행중인 음성 출력을 끊고 이번 TTS의 음성 출력
+        //                 2. TextToSpeech.QUEUE_ADD - 진행중인 음성 출력이 끝난 후에 이번 TTS의 음성 출력
+        tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, "id1");
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void lspeakOut(){
+        CharSequence text = txt_action2.getText();
         tts.setPitch((float)0.6); // 음성 톤 높이 지정
         tts.setSpeechRate((float)0.8); // 음성 속도 지정
 
@@ -236,12 +272,42 @@ public class EyeActivity extends AppCompatActivity implements TextToSpeech.OnIni
             if(result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
                 Log.e("TTS", "This Language is not supported");
             }else{
-                speak_out.setEnabled(true);
-                speakOut();// onInit에 음성출력할 텍스트를 넣어줌
+                txt_action1.setEnabled(true);
+                txt_action2.setEnabled(true);
             }
         }else{
             Log.e("TTS", "Initialization Failed!");
         }
+    }
+
+    private void getAction(String user_id){
+
+        retrofitAPI.getActions(user_id).enqueue(new Callback<Action>(){
+
+            @Override
+            public void onResponse(Call<Action> call, Response<Action> response) {
+                if (response.isSuccessful()) {
+                    Action message = response.body();
+                    if (message.getMes() != null) {
+                        Log.d("액션", message.getMes());
+                        List<ActionList> actions = message.getActions();
+                        String action1 = actions.get(0).getActionBody();
+                        String action2 = actions.get(1).getActionBody();
+                        txt_action1.setText(action1);
+                        txt_action2.setText(action2);
+                        Log.d("액션들",action1);
+                    } else{
+                        Log.d("액션없음", message.toString());
+                    }
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Action> call, Throwable t) {
+                Log.d("액션리스폰실패", t.toString());
+            }
+        });
     }
 
     //비전
@@ -360,6 +426,8 @@ public class EyeActivity extends AppCompatActivity implements TextToSpeech.OnIni
             // For front facing mode
 
             Tracker<Face> tracker = new FaceTracker(mGraphicOverlay);
+//            Tracker<Face> tracker1 = new doAction()
+
             processor = new LargestFaceFocusingProcessor.Builder(detector, tracker).build();
         } else {
             // For rear facing mode, a factory is used to create per-face tracker instances.
@@ -410,7 +478,7 @@ public class EyeActivity extends AppCompatActivity implements TextToSpeech.OnIni
         mCameraSource = new CameraSource.Builder(context, detector)
                 .setFacing(facing)
                 .setRequestedPreviewSize(320, 240)
-                .setRequestedFps(60.0f)
+                .setRequestedFps(10.0f)
                 .setAutoFocusEnabled(true)
                 .build();
     }
@@ -427,6 +495,7 @@ public class EyeActivity extends AppCompatActivity implements TextToSpeech.OnIni
             dlg.show();
         }
 
+
         if (mCameraSource != null) {
             try {
                 mPreview.start(mCameraSource, mGraphicOverlay);
@@ -440,5 +509,3 @@ public class EyeActivity extends AppCompatActivity implements TextToSpeech.OnIni
 
 
 }
-
-

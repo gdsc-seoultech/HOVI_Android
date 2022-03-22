@@ -18,14 +18,19 @@ package com.example.hovi_android.ui;
 
 import android.annotation.SuppressLint;
 import android.graphics.PointF;
+import android.util.Log;
 
+import com.example.hovi_android.EyeActivity;
 import com.google.android.gms.vision.Tracker;
 import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
 import com.google.android.gms.vision.face.Landmark;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
+import java.util.Queue;
 
 /**
  * Tracks the eye positions and state over time, managing an underlying graphic which renders googly
@@ -38,10 +43,30 @@ import java.util.Map;
  * during quick movements due to camera image blurring.
  */
 public class FaceTracker extends Tracker<Face> {
-    private static final float EYE_CLOSED_THRESHOLD = 0.4f;
+    private static final float EYE_CLOSED_THRESHOLD = 0.95f; //원래 0.4f
 
     private GraphicOverlay mOverlay;
     private EyesGraphics mEyesGraphics;
+
+    private Integer rightcount = 0;
+    private Boolean rightflag = true;
+
+
+    /// by kim
+    private Queue<Boolean> rightQue = new LinkedList<Boolean>();
+    private Integer rightCloseCount = 0;
+
+    private Queue<Boolean> leftQue = new LinkedList<Boolean>();
+    private Integer leftCloseCount = 0;
+
+
+    private static final float CLOSED_THRESHOLD = 0.9f; // TIME_TO_CHECK 번 중에서 감은 개수의 퍼센트
+    private static final Integer TIME_TO_CHECK = 30;
+    /// by kim
+
+
+    private Integer leftcount = 0;
+    private Boolean leftflag = true;
 
     // Record the previously seen proportions of the landmark locations relative to the bounding box
     // of the face.  These proportions can be used to approximate where the landmarks are within the
@@ -92,18 +117,95 @@ public class FaceTracker extends Tracker<Face> {
         } else {
             isLeftOpen = (leftOpenScore > EYE_CLOSED_THRESHOLD);
             mPreviousIsLeftOpen = isLeftOpen;
+            if (leftflag == isLeftOpen) { //눈이 열려있을때
+                if (leftQue.size() != TIME_TO_CHECK) { // 50개가 아직 채워지지 않았을때
+                    leftQue.add(true);
+                } else { // 50개 전부 채웠을때
+                    if ((leftCloseCount / TIME_TO_CHECK) >= CLOSED_THRESHOLD) { // 50개 다 채웠는데 눈 감은 비율이 95퍼센트 이상이면
+                        leftQue.clear(); // 큐를 전부 비우고
+                        leftCloseCount = 0; // 값 초기화
+                        ((EyeActivity) EyeActivity.mContext).doleftAction();
+                    } else { // 50개를 다 채웠는데 눈 감은 비율이 95퍼 이상이 아니면
+                        boolean tmp = leftQue.poll();
+                        if (!tmp) { // 가장 처음이 false 이면
+                            leftCloseCount -= 1; // 닫힌거 개수 하나 빼고
+                        }
+                        leftQue.add(true);
+                    }
+                }
+            } else { // 눈이 감겨있을때
+                if (leftQue.size() != TIME_TO_CHECK) { // 50개가 아직 채워지지 않았을때
+                    leftQue.add(false);
+                    leftCloseCount += 1;
+                } else { // 50개 전부 채웠을때
+                    if ((leftCloseCount / TIME_TO_CHECK) >= CLOSED_THRESHOLD) { // 50개 다 채웠는데 눈 감은 비율이 95퍼센트 이상이면
+                        leftQue.clear(); // 큐를 전부 비우고
+                        leftCloseCount = 0; // 값 초기화
+                        ((EyeActivity) EyeActivity.mContext).doleftAction();
+                    } else { // 50개를 다 채웠는데 눈 감은 비율이 95퍼 이상이 아니면 개수는 하나빼고 하나 더하니까 변화 없음
+                        boolean tmp =  leftQue.poll();
+                        if (tmp){
+                            leftCloseCount +=1;
+                        }
+                        leftQue.add(false);
+                    }
+                }
+            }
         }
 
         float rightOpenScore = face.getIsRightEyeOpenProbability();
         boolean isRightOpen;
-        if (rightOpenScore == Face.UNCOMPUTED_PROBABILITY) {
+        if (rightOpenScore == Face.UNCOMPUTED_PROBABILITY) { // 인식 제대로 안될때
             isRightOpen = mPreviousIsRightOpen;
         } else {
-            isRightOpen = (rightOpenScore > EYE_CLOSED_THRESHOLD);
+            isRightOpen = (rightOpenScore > EYE_CLOSED_THRESHOLD); // t,f
             mPreviousIsRightOpen = isRightOpen;
-        }
 
-        mEyesGraphics.updateEyes(leftPosition, isLeftOpen, rightPosition, isRightOpen);
+            Log.i("오른눈 체크 tf", String.valueOf(isRightOpen));
+            Log.i("오른눈 큐 개수", String.valueOf(rightQue.size()));
+
+            if (rightflag == isRightOpen) { //눈이 열려있을때
+                if (rightQue.size() != TIME_TO_CHECK) { // 50개가 아직 채워지지 않았을때
+                    rightQue.add(true);
+                } else { // 50개 전부 채웠을때
+                    if ((rightCloseCount / TIME_TO_CHECK) >= CLOSED_THRESHOLD) { // 50개 다 채웠는데 눈 감은 비율이 95퍼센트 이상이면
+                        rightQue.clear(); // 큐를 전부 비우고
+
+                        rightCloseCount = 0; // 값 초기화
+                        ((EyeActivity) EyeActivity.mContext).dorightAction();
+                    } else { // 50개를 다 채웠는데 눈 감은 비율이 95퍼 이상이 아니면
+                        boolean tmp = rightQue.poll();
+                        if (!tmp) { // 가장 처음이 false 이면
+                            rightCloseCount -= 1; // 닫힌거 개수 하나 빼고
+
+                        }
+                        rightQue.add(true);
+                    }
+                }
+            } else { // 눈이 감겨있을때
+                if (rightQue.size() != TIME_TO_CHECK) { // 50개가 아직 채워지지 않았을때
+                    rightQue.add(false);
+                    rightCloseCount += 1;
+                    Log.i("오른눈 감긴 수 체크 ", String.valueOf(rightCloseCount));
+                    Log.i("오른눈 감긴 수 비율 ", String.valueOf((rightCloseCount / TIME_TO_CHECK)));
+                } else { // 50개 전부 채웠을때
+                    if ((rightCloseCount / TIME_TO_CHECK) >= CLOSED_THRESHOLD) { // 50개 다 채웠는데 눈 감은 비율이 95퍼센트 이상이면
+                        rightQue.clear(); // 큐를 전부 비우고
+                        rightCloseCount = 0; // 값 초기화
+                        ((EyeActivity) EyeActivity.mContext).dorightAction();
+                    } else { // 50개를 다 채웠는데 눈 감은 비율이 95퍼 이상이 아니면 개수는 하나빼고 하나 더하니까 변화 없음
+
+                        boolean tmp = rightQue.poll();
+                        if (tmp){
+                            rightCloseCount +=1;
+                        }
+                        rightQue.add(false);
+                    }
+                }
+            }
+            mEyesGraphics.updateEyes(leftPosition, isLeftOpen, rightPosition, isRightOpen);
+//        Toast.makeText(mOverlay.getContext(), (int) rightOpenScore, Toast.LENGTH_SHORT).show(); //추가
+        }
     }
 
     /**
@@ -128,6 +230,7 @@ public class FaceTracker extends Tracker<Face> {
     //==============================================================================================
     // Private
     //==============================================================================================
+
 
     private void updatePreviousProportions(Face face) {
         for (Landmark landmark : face.getLandmarks()) {

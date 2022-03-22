@@ -5,77 +5,105 @@
     android:orientation="vertical"
     android:gravity="center">
 
-    <LinearLayout
-        android:layout_width="250dp"
-        android:layout_height="100dp"
-        android:orientation="vertical"
-        android:background="@drawable/border"
-        android:layout_marginBottom="60dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/rectangle">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:text="ACTION 1 : Smiling" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:text="Water Please" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="250dp"
-        android:layout_height="100dp"
-        android:orientation="vertical"
-        android:background="@drawable/border"
-        android:layout_marginBottom="60dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:background="@drawable/rectangle"
-            android:layout_height="50dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:text="ACTION 2 : Open mouth"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:text="Hungry"/>
-        </LinearLayout>
-    </LinearLayout>
-
-
     <Button
-        android:layout_width="100dp"
+        android:id="@+id/btn_setting"
+        android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/btn_rectangle"
-        android:textStyle="bold"
-        android:id="@+id/check_btn"
-        android:text="Check"/>
+        android:layout_gravity="right"
+        android:layout_margin="10dp"
+        android:background="@drawable/icons8_settings_144"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="260dp"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:background="@drawable/border"
+            android:layout_marginBottom="60dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/rectangle">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:text="ACTION 1 : Close left eye for 3 sec"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:id="@+id/txt_action1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:text="Water Please" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="260dp"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:background="@drawable/border"
+            android:layout_marginBottom="60dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="@drawable/rectangle"
+                android:layout_height="50dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:text="ACTION 2 : Close right eye for 3 sec"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <TextView
+                    android:id="@+id/txt_action2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:text="Hungry" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/check_btn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@drawable/btn_rectangle"
+            android:textStyle="bold"
+            android:text="Check"/>
+
+        <Button
+            android:id="@+id/revise_btn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@drawable/btn_rectangle"
+            android:textStyle="bold"
+            android:text="revise"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
 
 </LinearLayout>

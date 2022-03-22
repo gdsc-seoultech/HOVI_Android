@@ -31,8 +31,7 @@
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="face" />
 
-        <activity
-            android:name=".MainActivity"
+        <activity android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,10 +41,25 @@
         </activity>
 
         <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
+        </activity>
+
+        <activity
             android:name=".EyeActivity"
             android:exported="true">
         </activity>
 
+        <activity
+            android:name=".ReviseActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".SettingActivity"
+            android:exported="true">
+        </activity>
 
     </application>
 
