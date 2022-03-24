@@ -46,7 +46,7 @@ HOVI is used as follows. First, use the camera to recognize user's facial expres
 
 <img width="1433" alt="image" src="https://user-images.githubusercontent.com/90444862/159905960-a9e87066-bb66-4777-a7b8-110269814a21.png">
 
---
+---
 ## 🌱 Demo video
 
 ---
