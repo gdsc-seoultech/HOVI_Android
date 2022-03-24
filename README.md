@@ -17,7 +17,20 @@
 
 The application creates Text-to-Speech messages from people's face movement to help people who have difficulty communicating with one's voice. 
 
-HOVI is used as follows. First, use the camera to recognize user's facial expression. And match the expression with the desired opinion ("I want to drink water"). After that, when the camera recognizes one's expression again, the opinion is output as a voice, so that one can easily convey one's opinion to people around him/her.
+HOVI is used as follows : <br>
+1️⃣ Use the camera to recognize user's facial expression.  <br>
+2️⃣ Match the expression with the desired opinion ("I want to drink water").  <br>
+3️⃣ When the camera recognizes one's expression again, the opinion is output as a voice. <br>
+👍 It can easily convey one's opinion to people around him/her. 
+<br>
+<br>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/52899340/159975331-92a18870-40ba-412b-a10a-f6969f723759.gif" width="240" height="470"> 
+  <img src="https://user-images.githubusercontent.com/52899340/159975636-60aabfdb-65ec-4577-996e-a3ed7c22a716.gif" width="240" height="470">
+  <img src="https://user-images.githubusercontent.com/52899340/159973282-0eca4d09-87a2-4e5a-af6e-71cb2bfe360c.gif" width="240" height="470">
+</p>
+
+
 
 ---
 ## 🌱 What is HOVI's SDGs?
@@ -29,22 +42,25 @@ HOVI is used as follows. First, use the camera to recognize user's facial expres
 
 ---
 ## 🌱 Used Technology/Diagram
+✔️ [Backend Repository](https://github.com/YeongHyeon-Kim/HOVI_Spring) <br>
+✔️ [Machine Learning Repository](https://github.com/gdsc-seoultech/HOVI_ML)
+<br>
 <img width="1431" alt="image" src="https://user-images.githubusercontent.com/90444862/159906214-33a51fd5-8c13-4660-8a3f-5d566245aee4.png">
 
-✔️ [Backend Repository](https://github.com/YeongHyeon-Kim/HOVI_Spring)
-✔️ [Machine Learning Repository](https://github.com/gdsc-seoultech/HOVI_ML)
+
 
 ---
 ## 🌱 How to use?
-<img width="1431" alt="image" src="https://user-images.githubusercontent.com/90444862/159905744-9127f8fb-7586-4c6f-8488-b86a467d0612.png">
+<p>
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/90444862/159905744-9127f8fb-7586-4c6f-8488-b86a467d0612.png">
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/90444862/159905803-9bd04abb-f9b1-4858-b406-e433cd419a64.png">
+</p>
+<p>
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/90444862/159905835-fa2f2146-4b82-4779-9fa8-a85568f40ed5.png">
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/90444862/159905903-a08e3829-1f99-49d7-95d5-5bca727815a4.png">
+</p>
 
-<img width="1429" alt="image" src="https://user-images.githubusercontent.com/90444862/159905803-9bd04abb-f9b1-4858-b406-e433cd419a64.png">
-
-<img width="1431" alt="image" src="https://user-images.githubusercontent.com/90444862/159905835-fa2f2146-4b82-4779-9fa8-a85568f40ed5.png">
-
-<img width="1436" alt="image" src="https://user-images.githubusercontent.com/90444862/159905903-a08e3829-1f99-49d7-95d5-5bca727815a4.png">
-
-<img width="1433" alt="image" src="https://user-images.githubusercontent.com/90444862/159905960-a9e87066-bb66-4777-a7b8-110269814a21.png">
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/90444862/159905960-a9e87066-bb66-4777-a7b8-110269814a21.png">
 
 ---
 ## 🌱 Demo video
