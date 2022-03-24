@@ -31,8 +31,8 @@ HOVI is used as follows. First, use the camera to recognize user's facial expres
 ## 🌱 Used Technology/Diagram
 <img width="1431" alt="image" src="https://user-images.githubusercontent.com/90444862/159906214-33a51fd5-8c13-4660-8a3f-5d566245aee4.png">
 
-✔️ [Backend Repository] (https://github.com/YeongHyeon-Kim/HOVI_Spring)
-✔️ [Machine Learning Repository] (https://github.com/gdsc-seoultech/HOVI_ML)
+✔️ [Backend Repository](https://github.com/YeongHyeon-Kim/HOVI_Spring)
+✔️ [Machine Learning Repository](https://github.com/gdsc-seoultech/HOVI_ML)
 
 ---
 ## 🌱 How to use?
