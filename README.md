@@ -1,20 +1,12 @@
 # 🌱 2022 Solution Challenge: HOVI 🌱
-<img width="1439" alt="image" src="https://user-images.githubusercontent.com/90444862/159907828-f1f2b8f2-558e-4a58-b9f7-0a6b6b09d91d.png">
+[**Kang Inyeong**](https://github.com/KangInyeong), [**Kim Yeonghyeon**](https://github.com/YeongHyeon-Kim), [**Lee Seulbi**](https://github.com/drizzle0171), [**Park Jisoo**](https://github.com/ritty27) from **GDSC SeoulTech** (2021.12.21-ing)<br>
+<p align="center"><img width="1430" alt="image" src="https://user-images.githubusercontent.com/90444862/159907828-f1f2b8f2-558e-4a58-b9f7-0a6b6b09d91d.png"></p>
 
----
-### Contributor
-- [Kang Inyeong](https://github.com/KangInyeong), Android
-- [Kim Yeonghyeon](https://github.com/YeongHyeon-Kim), Backend
-- [Lee Seulbi](https://github.com/drizzle0171), Machine Learning
-- [Park Jisoo](https://github.com/ritty27), Backend
----
 
 ## 🌱 What is HOVI?
 
 <!--<p align="center" font-size=10px> [HOVI](https://drive.google.com/file/d/1eQ7sau4uSXglqdzLsXSXPaggUnSE_cTm/view?usp=sharing)  </p>-->
-
-**HOVI** means 'Have Own Voice Intermidiator'. 
-
+**HOVI** means 'Have Own Voice Intermidiator'.  
 The application creates Text-to-Speech messages from people's face movement to help people who have difficulty communicating with one's voice. 
 
 HOVI is used as follows : <br>
@@ -42,6 +34,7 @@ HOVI is used as follows : <br>
 
 ---
 ## 🌱 Used Technology/Diagram
+✔️ [Android Repository](https://github.com/gdsc-seoultech/HOVI_Android) <br>
 ✔️ [Backend Repository](https://github.com/YeongHyeon-Kim/HOVI_Spring) <br>
 ✔️ [Machine Learning Repository](https://github.com/gdsc-seoultech/HOVI_ML)
 <br>
@@ -68,3 +61,33 @@ HOVI is used as follows : <br>
 ---
 ## 🌱 What is HOVI's Vision?
 <img width="1435" alt="image" src="https://user-images.githubusercontent.com/90444862/159906059-9dd7e314-391a-4779-812e-1c7faa431c24.png">
+
+## 🌱 Who develop HOVI?
+<table align="center" >
+  <tr>
+    <td align="center">[Android]</td>
+    <td align="center">[Backed]</td>
+    <td align="center">[ML]</td>
+    <td align="center">[Backend]</td>
+  </tr>
+  <tr>
+    <td align="center"> Kang Inyeong </td>
+    <td align="center"> Kim Yeonghyeon </td>
+    <td align="center">Lee Seulbi</td>
+    <td align="center">Park Jisoo</td>
+  </tr>
+  <tr>
+    <td>
+      <img style="border: 0px solid black !important; border-radius:50%;" src="https://avatars.githubusercontent.com/u/52899340?v=4" width="180px" height="180px" />
+   </td>
+    <td>
+     <img style="border: 0px solid black !important; border-radius:50%;" src="https://avatars.githubusercontent.com/u/65334553?v=4" width="180px" height="180px" />
+   </td>
+    <td>
+     <img style="border: 0px solid black !important; border-radius:50%;" src="https://avatars.githubusercontent.com/u/90444862?v=4" width="180px" height="180px" />
+   </td>
+    <td>
+     <img style="border: 0px solid black !important; border-radius:50%;" src="https://avatars.githubusercontent.com/u/32264819?v=4" width="180px" height="180px" />
+   </td>
+  </tr>
+</table>
