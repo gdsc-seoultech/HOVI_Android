@@ -44,16 +44,16 @@ HOVI is used as follows : <br>
 
 ---
 ## 🌱 How to use?
-<p>
-  <img width="450" alt="image" src="https://user-images.githubusercontent.com/90444862/159905744-9127f8fb-7586-4c6f-8488-b86a467d0612.png">
-  <img width="450" alt="image" src="https://user-images.githubusercontent.com/90444862/159905803-9bd04abb-f9b1-4858-b406-e433cd419a64.png">
+<p align="center">
+  <img width="400" alt="image" src="https://user-images.githubusercontent.com/90444862/159905744-9127f8fb-7586-4c6f-8488-b86a467d0612.png">
+  <img width="400" alt="image" src="https://user-images.githubusercontent.com/90444862/159905803-9bd04abb-f9b1-4858-b406-e433cd419a64.png">
 </p>
-<p>
-  <img width="450" alt="image" src="https://user-images.githubusercontent.com/90444862/159905835-fa2f2146-4b82-4779-9fa8-a85568f40ed5.png">
-  <img width="450" alt="image" src="https://user-images.githubusercontent.com/90444862/159905903-a08e3829-1f99-49d7-95d5-5bca727815a4.png">
+<p align="center">
+  <img width="400" alt="image" src="https://user-images.githubusercontent.com/90444862/159905835-fa2f2146-4b82-4779-9fa8-a85568f40ed5.png">
+  <img width="400" alt="image" src="https://user-images.githubusercontent.com/90444862/159905903-a08e3829-1f99-49d7-95d5-5bca727815a4.png">
 </p>
 
-<img width="450" alt="image" src="https://user-images.githubusercontent.com/90444862/159905960-a9e87066-bb66-4777-a7b8-110269814a21.png">
+<p align="center"><img width="420" alt="image" src="https://user-images.githubusercontent.com/90444862/159905960-a9e87066-bb66-4777-a7b8-110269814a21.png"></p>
 
 ---
 ## 🌱 Demo video
