@@ -1,11 +1,26 @@
 # 🌱 2022 Solution Challenge: HOVI 🌱
-[**Kang Inyeong**](https://github.com/KangInyeong), [**Kim Yeonghyeon**](https://github.com/YeongHyeon-Kim), [**Lee Seulbi**](https://github.com/drizzle0171), [**Park Jisoo**](https://github.com/ritty27) from **GDSC SeoulTech** (2021.12.21-ing)<br>
+> Team Member:
+> [**Kang Inyeong**](https://github.com/KangInyeong), [**Kim Yeonghyeon**](https://github.com/YeongHyeon-Kim), [**Lee Seulbi**](https://github.com/drizzle0171), [**Park Jisoo**](https://github.com/ritty27) from **GDSC SeoulTech** (2021.12.21-ing)<br>
 <p align="center"><img width="1430" alt="image" src="https://user-images.githubusercontent.com/90444862/159907828-f1f2b8f2-558e-4a58-b9f7-0a6b6b09d91d.png"></p>
 
+---
+
+## 🌱 Index
+1. [What is HOVI?](##-🌱-What-is-HOVI?)
+2. [What is HOVI's SDGs?](##-🌱-What-is-HOVI's-SDGs?)
+3. [Who can be a HOVI's user?](##-🌱-Who-can-be-a-HOVI's-user?)
+4. [Used Technology/Diagram](##-🌱-Used-Technology/Diagram)
+5. [How to use?](##-🌱-How-to-use?)
+6. [Demo Video](##-🌱-Demo-video)
+7. [What is HOVI's Vision?](##-🌱-What-is-HOVI's-Vision?)
+8. [Who develop HOVI?](##-🌱-Who-develop-HOVI?)
+
+<br>
+
+---
 
 ## 🌱 What is HOVI?
 
-<!--<p align="center" font-size=10px> [HOVI](https://drive.google.com/file/d/1eQ7sau4uSXglqdzLsXSXPaggUnSE_cTm/view?usp=sharing)  </p>-->
 **HOVI** means 'Have Own Voice Intermidiator'.  
 The application creates Text-to-Speech messages from people's face movement to help people who have difficulty communicating with one's voice. 
 
@@ -38,8 +53,8 @@ HOVI is used as follows : <br>
 ✔️ [Backend Repository](https://github.com/YeongHyeon-Kim/HOVI_Spring) <br>
 ✔️ [Machine Learning Repository](https://github.com/gdsc-seoultech/HOVI_ML)
 <br>
-<img width="1431" alt="image" src="https://user-images.githubusercontent.com/90444862/159906214-33a51fd5-8c13-4660-8a3f-5d566245aee4.png">
 
+<img width="1434" alt="image" src="https://user-images.githubusercontent.com/90444862/160265203-59bc2f9d-7aef-4883-bd7b-39810d5170ce.png">
 
 
 ---
