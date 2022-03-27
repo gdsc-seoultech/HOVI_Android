@@ -6,14 +6,14 @@
 ---
 
 ## 🌱 Index
-1. [What is HOVI?](#-what-is-hovi?)
+1. [What is HOVI?](#-what-is-hovi)
 2. [What is HOVI's SDGs?](#-what-is-hovis-sdgs)
-3. [Who can be a HOVI's user?](#-who-can-be-a-hovis-user?)
+3. [Who can be a HOVI's user?](#-who-can-be-a-hovis-user)
 4. [Used Technology/Diagram](#-used-technologydiagram)
-5. [How to use?](#-how-to-use?)
+5. [How to use?](#-how-to-use)
 6. [Demo Video](#-demo-video)
-7. [What is HOVI's Vision?](#-what-is-hovis-vision?)
-8. [Who develop HOVI?](#-who-develop-hovi?)
+7. [What is HOVI's Vision?](#-what-is-hovis-vision)
+8. [Who develop HOVI?](#-who-develop-hovi)
 
 <br>
 
