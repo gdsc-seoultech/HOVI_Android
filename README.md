@@ -72,37 +72,33 @@ HOVI is used as follows : <br>
 
 ---
 ## 🌱 Demo video
+👉 [[Solution Challenge 2022] HOVI - Eye blinking recognition application for communication](https://youtu.be/xDmImSB5Fxk) 👈
 
 ---
 ## 🌱 What is HOVI's Vision?
 <img width="1435" alt="image" src="https://user-images.githubusercontent.com/90444862/159906059-9dd7e314-391a-4779-812e-1c7faa431c24.png">
 
 ## 🌱 Who develop HOVI?
-<table align="center" >
+
+<table align="center">
+   <tr>
+      <td colspan="1" align="center"><strong>[ Android ]</strong></td>
+      <td colspan="1" align="center"><strong>[ Back-End ]</strong></td>
+      <td colspan="1" align="center"><strong>[ Machine Learning ]</strong></td>
+      <td colspan="1" align="center"><strong>[ Back-End ]</strong></td>
+   </tr>
   <tr>
-    <td align="center">[Android]</td>
-    <td align="center">[Backed]</td>
-    <td align="center">[ML]</td>
-    <td align="center">[Backend]</td>
-  </tr>
-  <tr>
-    <td align="center"> Kang Inyeong </td>
-    <td align="center"> Kim Yeonghyeon </td>
-    <td align="center">Lee Seulbi</td>
-    <td align="center">Park Jisoo</td>
-  </tr>
-  <tr>
-    <td>
-      <img style="border: 0px solid black !important; border-radius:50%;" src="https://avatars.githubusercontent.com/u/52899340?v=4" width="180px" height="180px" />
-   </td>
-    <td>
-     <img style="border: 0px solid black !important; border-radius:50%;" src="https://avatars.githubusercontent.com/u/65334553?v=4" width="180px" height="180px" />
-   </td>
-    <td>
-     <img style="border: 0px solid black !important; border-radius:50%;" src="https://avatars.githubusercontent.com/u/90444862?v=4" width="180px" height="180px" />
-   </td>
-    <td>
-     <img style="border: 0px solid black !important; border-radius:50%;" src="https://avatars.githubusercontent.com/u/32264819?v=4" width="180px" height="180px" />
-   </td>
+    <td align="center">
+    <a href="https://github.com/KangInyeong"><img src="https://avatars.githubusercontent.com/u/52899340?v=4" width="180px" alt="Kang Inyeong"/><br/><sub><b>Kang Inyeong</b></sub></a><br />
+    </td>
+     <td align="center">
+        <a href="https://github.com/YeongHyeon-Kim"><img src="https://avatars.githubusercontent.com/u/65334553?v=4" width="180px" alt="Kim Yeonghyeon"/><br/><sub><b>Kim Yeonghyeon</b></sub></a>
+     </td>
+     <td align="center">
+        <a href="https://github.com/drizzle0171"><img src="https://avatars.githubusercontent.com/u/90444862?v=4" width="180px" alt="Lee Seulbi"/><br/><sub><b>Lee Seulbi</b></sub></a>
+     </td>
+         <td align="center">
+        <a href="https://github.com/ritty27"><img src="https://avatars.githubusercontent.com/u/32264819?v=4" width="180px" alt="Park Jisoo"/><br /><sub><b>Park Jisoo</b></sub></a>
+     </td>
   </tr>
 </table>
